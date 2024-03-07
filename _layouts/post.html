@@ -1,0 +1,37 @@
+---
+layout: default
+---
+
+<section class="post_wrapper">
+    <div class="title">
+        <h1>Download {{page.title}} ({{page.release}}) {{page.language}} {{page.type}} {% for item in quality %}{% endfor %}</h1>
+    </div>
+    <article>
+        <div class="thumbnail">
+            <img class="img" src="{{page.thumb}}" width="200" height="300" alt="{{page.title}}" />
+            <div class="info">
+                <ul>
+                    <li><b>Full Name:</b> {{page.title}}</li>
+                    <li><b>Language:</b> {{page.language|join:', '}}</li>
+                    <li><b>Release Year:</b> {{page.release}}</li>
+                    <li><b>Size:</b> {{page.size|join:', '}}</li>
+                    <li><b>Quality:</b>  {{page.quality|join:', '}}</li>
+                    <li><b>Format:</b> Mkv</li>
+                    <li><b>Director:</b> {{page.director|join:', '}}</li>
+                    <li><b>Writers:</b> {{page.writers|join:', '}}</li>
+                    <li><b>Stars:</b> {{page.cast|join:', '}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="summary">
+            <h3>Summary:</h3>
+            <summary>{{page.summary}}</summary>
+        </div>
+        <div>{{content}}</div>
+        <div class="tags">
+            {%- for item in page.categories -%}
+            <span>{{item}}</span>
+            {%- endfor -%}
+        </div>
+    </article>
+</section>
