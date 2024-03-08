@@ -2,32 +2,36 @@
 layout: default
 ---
 
-<section class="home_page_posts">
+<section class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-3">
     {%- for post in paginator.posts -%}
-    <a  href="{{post.url}}" class="post">
-        <img src="{{post.thumb}}" alt="{{post.title}}">
-        <h2>{{post.title}}</h2>
-    </a>
+    <div class="col">
+      <a href="{{post.url}}" class="card text-decoration-none">
+        <img class="card-image-top" src="{{post.thumb}}" alt="{{post.title}}">
+        <div class="card-body"><h2 class="card-text fs-5">{{post.title}}</h2></div>
+      </a>
+    </div>
     {%- endfor -%}
 </section>
 
 <!-- Pagination links -->
+<nav class="my-5 d-flex justify-content-center" aria-label="Pagination homepage">
 {% if paginator.total_pages > 1 %}
-<div class="pagination">
+<ul class="pagination">
   {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | relative_url }}">Prev</a>
+    <li class="page-item"><a class="page-link" href="{{ paginator.previous_page_path | relative_url }}">Prev</a></li>
   {% endif %}
   {% for page in (1..paginator.total_pages) %}
     {% if page == paginator.page %}
-      <span>{{ page }}</span>
+      <li class="page-item disabled"><span class="page-link">{{ page }}</span></li>
     {% elsif page == 1 %}
-      <a href="{{ '/' | relative_url }}">{{ page }}</a>
+      <li class="page-item"><a class="page-link" href="{{ '/' | relative_url }}">{{ page }}</a></li>
     {% else %}
-      <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
+      <li class="page-item"><a class="page-link" href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a></li>
     {% endif %}
   {% endfor %}
   {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | relative_url }}">Next</a>
+    <li class="page-item"><a class="page-link" href="{{ paginator.next_page_path | relative_url }}">Next</a></li>
   {% endif %}
-</div>
+</ul>
 {% endif %}
+</nav>

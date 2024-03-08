@@ -1,15 +1,21 @@
-<header>
-    <div class="header_wrapper">
-        <div class="logo">
-            <a href="/">{{site.title}}</a>
-        </div>
-        <div class="toggle" id="toggle">
-            
-        </div>
-        <nav>
-            {%- for item in site.data.navbar -%}
-            <a href="{{item.href}}">{{item.title}}</a>
-            {%- endfor -%}
-        </nav>
+<nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary">
+    <div class="container">
+      <a class="navbar-brand" href="/">{{site.title}}</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          {% for item in site.data.navbar %}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{item.link}}">{{item.name}}</a>
+          </li>
+          {% endfor %}
+        </ul>
+        <form class="d-flex" role="search" action="/search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+        </form>
+      </div>
     </div>
-</header>
+  </nav>

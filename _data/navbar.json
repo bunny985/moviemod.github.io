@@ -1,26 +1,26 @@
 [
     {
-        "title":"Home",
-        "href":"/"
+        "name":"Home",
+        "link":"/"
     },
     {
-        "title":"Hindi",
-        "href":"/hindi"
+        "name":"Hindi",
+        "link":"/hindi"
     },
     {
-        "title":"Punjabi",
-        "href":"/punjabi"
+        "name":"Punjabi",
+        "link":"/punjabi"
     },
     {
-        "title":"Tamil",
-        "href":"/tamil"
+        "name":"Tamil",
+        "link":"/tamil"
     },
     {
-        "title":"Telugu",
-        "href":"/telugu"
+        "name":"Telugu",
+        "link":"/telugu"
     },
     {
-        "title":"Malayalam",
-        "href":"/malayalam"
+        "name":"Malayalam",
+        "link":"/malayalam"
     }
 ]
